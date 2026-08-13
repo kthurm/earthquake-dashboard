@@ -1,1 +1,1 @@
-export sortDirection from "asc" | "desc";
+export type SortDirection = "asc" | "desc";
