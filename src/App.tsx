@@ -31,7 +31,7 @@ function App() {
   }, [timeRange]);
 
   return (
-    <div className="flex flex-col w-full items-center justify-between min-h-svh bg-surface">
+    <div className="flex flex-col w-full items-center justify-between min-h-svh bg-[url('/topography.svg')] bg-repeat">
       <Toolbar
         timeRange={timeRange}
         setTimeRange={setTimeRange}
@@ -40,7 +40,7 @@ function App() {
         setSortBy={setSortBy}
       />
       <main className="grow w-full mx-auto">
-        <div className="flex flex-col">
+        <div className="flex flex-col md:mt-20">
           <Header title={timeRangeLabel} count={earthquakes.length} />
         </div>
         <EarthquakeList
