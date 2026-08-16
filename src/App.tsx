@@ -6,7 +6,7 @@ import { lazy, Suspense, useEffect, useState } from "react";
 import type { Earthquake } from "./types/earthquake";
 import type { SortOption } from "./types/sortOption";
 import EarthquakeList from "./components/EarthquakeList";
-import EarthquakeMap from "./components/EarthquakeMap";
+
 
 const EarthquakeMap = lazy(() => import("./components/EarthquakeMap"));
 
