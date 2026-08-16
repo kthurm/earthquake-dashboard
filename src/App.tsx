@@ -2,11 +2,13 @@ import Toolbar from "./components/Toolbar";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { APP_TITLE } from "./constants/app";
-import { useEffect, useState } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import type { Earthquake } from "./types/earthquake";
 import type { SortOption } from "./types/sortOption";
 import EarthquakeList from "./components/EarthquakeList";
 import EarthquakeMap from "./components/EarthquakeMap";
+
+const EarthquakeMap = lazy(() => import("./components/EarthquakeMap"));
 
 function App() {
   const [earthquakes, setEarthquakes] = useState<Earthquake[]>([]);
@@ -63,9 +65,19 @@ function App() {
             setSortDirection={setSortDirection}
           />
         ) : (
-          <div className="text-center">
+          <Suspense
+            fallback={
+              <div className="flex items-center justify-center py-16">
+                <div
+                  className="h-8 w-8 animate-spin rounded-full border-4 border-gray-300 border-t-primary"
+                  aria-hidden="true"
+                />
+                <span className="sr-only">Loading map...</span>
+              </div>
+            }
+          >
             <EarthquakeMap earthquakes={earthquakes} />
-          </div>
+          </Suspense>
         )}
       </main>
 
