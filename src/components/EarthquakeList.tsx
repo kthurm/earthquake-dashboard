@@ -4,7 +4,6 @@ import type { SortOption } from "../types/sortOption";
 
 interface EarthquakeListProps {
   earthquakes: Earthquake[];
-  setTimeRange: (timeRange: string) => void;
   sortBy: SortOption;
   setSortBy: (sortBy: SortOption) => void;
   sortDirection: "asc" | "desc";
@@ -15,7 +14,7 @@ function EarthquakeList(props: EarthquakeListProps) {
   const [visibleCount, setVisibleCount] = useState(30);
   const sortedEarthquakes = [...props.earthquakes];
 
-  console.log("props.sortDirection", props.sortDirection);
+  // console.log("props.sortDirection", props.sortDirection);
 
   if (props.sortBy === "magnitude") {
     sortedEarthquakes.sort((a, b) => {
