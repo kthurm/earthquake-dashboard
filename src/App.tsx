@@ -7,9 +7,6 @@ import type { Earthquake } from "./types/earthquake";
 import type { SortOption } from "./types/sortOption";
 import EarthquakeList from "./components/EarthquakeList";
 
-
-const EarthquakeMap = lazy(() => import("./components/EarthquakeMap"));
-
 const EarthquakeMap = lazy(() => import("./components/EarthquakeMap"));
 
 function App() {
