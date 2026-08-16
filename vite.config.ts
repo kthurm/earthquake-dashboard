@@ -6,6 +6,10 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
   plugins: [react(), tailwindcss()],
 
+  optimizeDeps: {
+    exclude: ["maplibre-gl"],
+  },
+
   server: {
     open: true,
     watch: {

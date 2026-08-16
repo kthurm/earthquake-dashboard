@@ -6,11 +6,22 @@ import { useEffect, useState } from "react";
 import type { Earthquake } from "./types/earthquake";
 import type { SortOption } from "./types/sortOption";
 import EarthquakeList from "./components/EarthquakeList";
+import EarthquakeMap from "./components/EarthquakeMap";
 
 function App() {
   const [earthquakes, setEarthquakes] = useState<Earthquake[]>([]);
 
   const [timeRange, setTimeRange] = useState("day");
+
+  const [view, setView] = useState<"table" | "map">(() => {
+    const savedView = localStorage.getItem("earthquakeView");
+
+    return savedView === "map" ? "map" : "table";
+  });
+
+  useEffect(() => {
+    localStorage.setItem("earthquakeView", view);
+  }, [view]);
 
   const [sortBy, setSortBy] = useState<SortOption>("time");
 
@@ -36,21 +47,26 @@ function App() {
         timeRange={timeRange}
         setTimeRange={setTimeRange}
         title={APP_TITLE}
-        sortBy={sortBy}
-        setSortBy={setSortBy}
+        view={view}
+        setView={setView}
       />
       <main className="grow w-full mx-auto">
         <div className="flex flex-col md:mt-20">
           <Header title={timeRangeLabel} count={earthquakes.length} />
         </div>
-        <EarthquakeList
-          earthquakes={earthquakes}
-          sortBy={sortBy}
-          setSortBy={setSortBy}
-          setTimeRange={setTimeRange}
-          sortDirection={sortDirection}
-          setSortDirection={setSortDirection}
-        />
+        {view === "table" ? (
+          <EarthquakeList
+            earthquakes={earthquakes}
+            sortBy={sortBy}
+            setSortBy={setSortBy}
+            sortDirection={sortDirection}
+            setSortDirection={setSortDirection}
+          />
+        ) : (
+          <div className="text-center">
+            <EarthquakeMap earthquakes={earthquakes} />
+          </div>
+        )}
       </main>
 
       <Footer />
