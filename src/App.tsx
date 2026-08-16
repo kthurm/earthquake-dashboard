@@ -68,7 +68,7 @@ function App() {
             fallback={
               <div className="flex items-center justify-center py-16">
                 <div
-                  className="h-8 w-8 animate-spin rounded-full border-4 border-gray-300 border-t-primary"
+                  className="h-8 w-8 animate-spin rounded-full border-3 border-gray-300 border-t-primary"
                   aria-hidden="true"
                 />
                 <span className="sr-only">Loading map...</span>
