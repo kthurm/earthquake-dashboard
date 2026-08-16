@@ -9,11 +9,9 @@ export default defineConfig({
   optimizeDeps: {
     exclude: ["maplibre-gl"],
   },
-
   build: {
     chunkSizeWarningLimit: 1000,
   },
-
   server: {
     open: true,
     watch: {
