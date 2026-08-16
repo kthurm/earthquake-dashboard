@@ -6,4 +6,7 @@ export interface Earthquake {
     place: string;
     time: number;
   };
+  geometry: {
+    coordinates: [number, number, number]; // [longitude, latitude, depth]
+  };
 }
