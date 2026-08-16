@@ -5,7 +5,7 @@ import { APP_TITLE } from "./constants/app";
 import { lazy, Suspense, useEffect, useState } from "react";
 import type { Earthquake } from "./types/earthquake";
 import type { SortOption } from "./types/sortOption";
-import EarthquakeList from "./components/EarthquakeList";
+
 
 
 const EarthquakeMap = lazy(() => import("./components/EarthquakeMap"));
