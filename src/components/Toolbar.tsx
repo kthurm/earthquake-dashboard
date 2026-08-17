@@ -15,7 +15,7 @@ function Toolbar(props: ToolbarProps) {
       <div className="flex gap-2">
         <div className="flex items-center space-x-2">
           <button
-            className="text-white hover:text-secondary-dark hover:bg-white p-1.5 rounded text-center min-w-32 drop-shadow-xl/10 border text-xs"
+            className="text-white hover:text-secondary-dark hover:bg-white p-1 lg:p-1.5 rounded text-center lg:min-w-32 drop-shadow-xl/10 border text-xs"
             onClick={() => {
               props.setTimeRange(props.timeRange === "day" ? "week" : "day");
 
@@ -28,7 +28,7 @@ function Toolbar(props: ToolbarProps) {
             Change Range to {buttonLabel}
           </button>
           <button
-            className="text-white hover:text-secondary-dark hover:bg-white p-1.5 rounded text-center min-w-22 drop-shadow-xl/10 border text-xs"
+            className="text-white hover:text-secondary-dark hover:bg-white p-1 lg:p-1.5 rounded text-center lg:min-w-22 drop-shadow-xl/10 border text-xs"
             onClick={() =>
               props.setView(props.view === "table" ? "map" : "table")
             }
