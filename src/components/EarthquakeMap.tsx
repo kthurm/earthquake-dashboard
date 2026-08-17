@@ -20,6 +20,7 @@ function EarthquakeMap(props: EarthquakeMapProps) {
     latitude: number;
     mag: number | null;
     place: string;
+    time: number;
   } | null>(null);
 
   const firstEarthquake = props.earthquakes[0];
@@ -71,6 +72,7 @@ function EarthquakeMap(props: EarthquakeMapProps) {
             latitude: event.lngLat.lat,
             mag: feature.properties?.mag ?? null,
             place: feature.properties?.place ?? "Unknown location",
+            time: feature.properties?.time ?? 0,
           });
         }}
         onMouseLeave={() => setHoverInfo(null)}
@@ -119,6 +121,7 @@ function EarthquakeMap(props: EarthquakeMapProps) {
                 {hoverInfo.mag !== null ? hoverInfo.mag.toFixed(1) : "N/A"}
               </p>
               <p>{hoverInfo.place}</p>
+              <p>{new Date(hoverInfo.time).toLocaleDateString()}</p>
             </div>
           </Popup>
         )}
