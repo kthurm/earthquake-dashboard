@@ -2,7 +2,13 @@ import type { Earthquake } from "../types/earthquake";
 import { useState } from "react";
 import Map, { Source, Layer, Popup } from "react-map-gl/maplibre";
 import type { FeatureCollection, Point } from "geojson";
+
+import { setWorkerUrl } from "maplibre-gl";
+import workerUrl from "maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url";
+
 import "maplibre-gl/dist/maplibre-gl.css";
+
+setWorkerUrl(workerUrl);
 
 interface EarthquakeMapProps {
   earthquakes: Earthquake[];

@@ -14,7 +14,6 @@ function EarthquakeList(props: EarthquakeListProps) {
   const [visibleCount, setVisibleCount] = useState(30);
   const sortedEarthquakes = [...props.earthquakes];
 
-
   if (props.sortBy === "magnitude") {
     sortedEarthquakes.sort((a, b) => {
       if (a.properties.mag === null && b.properties.mag === null) {
